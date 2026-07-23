@@ -3,18 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-todo-list',
-    template: `
-      <h1 id="tableLabel">Todo List</h1>
-
-      <p *ngIf="!todos"><em>Loading...</em></p>
-
-      <div *ngIf="todos" class="todo-list">
-        <div *ngFor="let todo of todos">
-          <input type="checkbox" [checked]="todo.isDone"/> {{ todo.text }}
-        </div>
-      </div>
-    `,
-   styles: ['body { margin: 10px; }']
+  templateUrl: `./todo-list.component.html`,
+  styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent {
   public todos:Todo[]
