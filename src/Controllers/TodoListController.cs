@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using TodoList.Models;
 using System.Text.Json;
@@ -18,6 +20,11 @@ namespace TodoList.Controllers
             }
 
             string json = System.IO.File.ReadAllText(filePath);
+
+                if (string.IsNullOrWhiteSpace(json))
+                {
+                    return new List<TodoList.Models.TodoList>();
+                }
 
             return JsonSerializer.Deserialize<List<TodoList.Models.TodoList>>(json)
                 ?? new List<TodoList.Models.TodoList>();
