@@ -1,9 +1,7 @@
-<h1 id="tableLabel">Todo List</h1>
-
-<p *ngIf="!todos"><em>Loading...</em></p>
-
-<div *ngIf="todos" class="todo-list">
-  <div *ngFor="let todo of todos">
-    <input type="checkbox" [checked]="todo.isDone"/> {{ todo.text }}
+<div class="TodoList">
+  <h1>Mes tâches</h1>
+  <div></div>
+  <div class="TodoList-Bloc-Droit">
+    <a routerLink="/create-todo">Créer une tâche</a>
   </div>
 </div>

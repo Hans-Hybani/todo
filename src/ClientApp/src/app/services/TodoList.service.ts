@@ -7,11 +7,11 @@ import { TodoList } from '../models/TodoList';
   providedIn: 'root'
 })
 export class TodoListService {
-  private apiUrl = 'https://localhost:5001/api/TodoLists';
+  private apiUrl = 'https://localhost:5001/api/TodoList';
 
   constructor(private http: HttpClient) {}
 
-  getTodoLists(): Observable<TodoList[]> {
+  getTodoList(): Observable<TodoList[]> {
     return this.http.get<TodoList[]>(this.apiUrl);
   }
 
