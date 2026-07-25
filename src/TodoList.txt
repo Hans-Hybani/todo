@@ -1,0 +1,23 @@
+[
+  {
+    "Id": 1,
+    "Title": "firstTest",
+    "IsDone": false,
+    "DueDate": "2026-07-25T00:00:00",
+    "Notes": "Ceci est un test"
+  },
+  {
+    "Id": 2,
+    "Title": "Test 2",
+    "IsDone": false,
+    "DueDate": "2026-07-27T00:00:00",
+    "Notes": "D\u00E9scription de la tache"
+  },
+  {
+    "Id": 3,
+    "Title": "Orange",
+    "IsDone": false,
+    "DueDate": "2026-07-27T00:00:00",
+    "Notes": "Orange"
+  }
+]

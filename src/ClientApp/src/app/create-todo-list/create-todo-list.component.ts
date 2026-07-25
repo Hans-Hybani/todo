@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-todo-list.component.css']
 })
 export class CreateTodoListComponent implements OnInit {
-
   todoForm!: FormGroup;
 
   constructor(

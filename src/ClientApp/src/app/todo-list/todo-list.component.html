@@ -1,6 +1,16 @@
 <div class="TodoList">
   <h1>Mes tâches</h1>
-  <div></div>
+  <div class="TodoList-Bloc-Gauche">
+    <div *ngFor="let todo of todos">
+      <h2>{{ todo.title }}</h2>
+      <span>
+        <input type="checkbox" [checked]="todo.isDone" (change)="onToggleDone(todo)">
+        Finir la tâche ?
+      </span>
+      <p>Échéance : {{ todo.dueDate }}</p>
+      <p>Description : {{ todo.notes }}</p>
+    </div>
+  </div>
   <div class="TodoList-Bloc-Droit">
     <a routerLink="/create-todo">Créer une tâche</a>
   </div>
