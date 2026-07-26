@@ -1,0 +1,21 @@
+<div class="CreatTodoList">
+    <h1>Créer une tâche</h1>
+    <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="title">Titre de la tâche</label>
+            <input id="title" type="text" formControlName="title">
+        </div>
+  
+        <div>
+            <label for="dueDate">Date d'échéance</label>
+            <input id="dueDate" type="date" formControlName="dueDate">
+        </div>
+  
+        <div>
+            <label for="notes">Déscription</label>
+            <textarea id="notes" rows="4" formControlName="notes">Oublie pas de créer une tâche</textarea>
+        </div>
+  
+        <button type="submit">Créer</button>
+    </form>
+</div>

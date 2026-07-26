@@ -8,7 +8,7 @@ namespace TodoList.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class TodoListsController : ControllerBase
+    public class TodoListController : ControllerBase
     {
         private readonly string filePath = "TodoList.txt";
 

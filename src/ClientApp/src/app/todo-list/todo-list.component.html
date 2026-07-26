@@ -4,11 +4,13 @@
     <div *ngFor="let todo of todos">
       <h2>{{ todo.title }}</h2>
       <span>
-        <input type="checkbox" [checked]="todo.isDone" (change)="onToggleDone(todo)">
+        <input type="checkbox" [checked]="todo.isDone" (change)="onCheck(todo)">
         Finir la tâche ?
+        <button *ngIf="selectedTodoId === todo.id" (click)="onDelete(todo)">Supprimer</button>
       </span>
       <p>Échéance : {{ todo.dueDate }}</p>
       <p>Description : {{ todo.notes }}</p>
+      <a [routerLink]="['/edit-todo', todo.id]">Modifier</a>
     </div>
   </div>
   <div class="TodoList-Bloc-Droit">

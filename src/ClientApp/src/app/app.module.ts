@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { CreateTodoListComponent } from './create-todo-list/create-todo-list.component';
+import { EditTodoListComponent } from './edit-todo-list/edit-todo-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     TodoListComponent,
-    CreateTodoListComponent
+    CreateTodoListComponent,
+    EditTodoListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -24,6 +26,7 @@ import { CreateTodoListComponent } from './create-todo-list/create-todo-list.com
     RouterModule.forRoot([
       { path: 'todo-list', component: TodoListComponent },
       { path: 'create-todo', component: CreateTodoListComponent},
+      { path: 'edit-todo/:id', component: EditTodoListComponent},
       { path: '**', redirectTo: 'todo-list' }
     ])
   ],
