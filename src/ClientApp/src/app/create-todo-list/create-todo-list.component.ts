@@ -20,13 +20,13 @@ export class CreateTodoListComponent implements OnInit {
   ngOnInit(): void {
     this.todoForm = this.fb.group({
       title: ['', [Validators.required, Validators.maxLength(200)]],
-      isDone: [false],
       dueDate: [''],
       notes: ['', [Validators.maxLength(2000)]]
     });
   }
 
   onSubmit(): void {
+    // Prevents submission if the form is invalid (client-side validation).
     if (this.todoForm.invalid) {
       this.todoForm.markAllAsTouched();
       return;

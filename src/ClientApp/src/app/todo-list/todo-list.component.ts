@@ -26,10 +26,12 @@ export class TodoListComponent implements OnInit {
     });
   }
 
+  // Mark a to-do item as “selected” to reveal the delete button
   onCheck(todo: TodoList): void {
     this.selectedTodoId = todo.id;
   }
 
+  // Deletes a to-do item and reloads the list
   onDelete(todo: TodoList): void {
     this.todoService.deleteTodoList(todo.id).subscribe(() => {
       this.selectedTodoId = null;

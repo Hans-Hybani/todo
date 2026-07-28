@@ -20,20 +20,24 @@ export class EditTodoListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // Retrieves the ID from the URL (/edit-todo/:id) to determine which todo to load.
     this.todoId = Number(this.route.snapshot.paramMap.get('id'));
 
+    // IsDone is not present because it is not necessary to mark a task as complete when editing it.
     this.todoForm = this.fb.group({
       title: ['', [Validators.required, Validators.maxLength(200)]],
       dueDate: [''],
       notes: ['', [Validators.maxLength(2000)]]
     });
 
+    // Pre-fills the form with the current values from the todo.
     this.todoService.getTodoListById(this.todoId).subscribe(todo => {
       this.todoForm.patchValue(todo);
     });
   }
 
   onSubmit(): void {
+    // Prevents submission if the form is invalid and displays error messages
     if (this.todoForm.invalid) {
       this.todoForm.markAllAsTouched();
       return;
@@ -42,7 +46,8 @@ export class EditTodoListComponent implements OnInit {
       this.router.navigate(['/todo-list']);
     });
   }
-
+  
+  // Discards the changes without saving and returns directly to the list. (Cancel button)
   onCancel(): void {
     this.router.navigate(['/todo-list']);
   }

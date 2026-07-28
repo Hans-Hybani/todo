@@ -8,7 +8,7 @@
         Finir la tâche ?
         <button *ngIf="selectedTodoId === todo.id" (click)="onDelete(todo)">Supprimer</button>
       </span>
-      <p>Échéance : {{ todo.dueDate }}</p>
+      <p>Échéance : {{ todo.dueDate | date:'EEE dd MMM yyyy'  }}</p>
       <p>Description : {{ todo.notes }}</p>
       <a [routerLink]="['/edit-todo', todo.id]">Modifier</a>
     </div>
