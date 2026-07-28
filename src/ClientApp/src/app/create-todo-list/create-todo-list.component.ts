@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TodoListService } from '../services/TodoList.service';
 import { Router } from '@angular/router';
 
@@ -19,14 +19,18 @@ export class CreateTodoListComponent implements OnInit {
 
   ngOnInit(): void {
     this.todoForm = this.fb.group({
-      title: [''],
+      title: ['', [Validators.required, Validators.maxLength(200)]],
       isDone: [false],
       dueDate: [''],
-      notes: ['']
+      notes: ['', [Validators.maxLength(2000)]]
     });
   }
 
   onSubmit(): void {
+    if (this.todoForm.invalid) {
+      this.todoForm.markAllAsTouched();
+      return;
+    }
     this.todoService.addTodoList(this.todoForm.value).subscribe(() => {
       this.todoForm.reset({
         isDone: false

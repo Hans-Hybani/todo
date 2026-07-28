@@ -4,6 +4,9 @@
         <div>
             <label for="title">Titre de la tâche</label>
             <input id="title" type="text" formControlName="title">
+            <p *ngIf="todoForm.get('title')?.invalid && todoForm.get('title')?.touched" style="color: red;">
+                Veuillez inscrire un titre, s'il vous plaît..
+            </p>
         </div>
   
         <div>
@@ -16,6 +19,6 @@
             <textarea id="notes" rows="4" formControlName="notes">Oublie pas de créer une tâche</textarea>
         </div>
   
-        <button type="submit">Créer</button>
+        <button type="submit" [disabled]="todoForm.invalid">Créer</button>
     </form>
 </div>
