@@ -5,11 +5,12 @@ namespace TodoList.Models
 {
     public class TodoList
     {   
-        [Required(ErrorMessage = "Veuillez inscrire un titre, s'il vous plaît.")]
-        [StringLength(200, ErrorMessage = "Le titre ne doit pas dépasser 200 caractères.")]
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "Veuillez inscrire un titre, s'il vous plaît.")]
+        [StringLength(200, ErrorMessage = "Le titre ne doit pas dépasser 200 caractères.")]
         public string Title { get; set; }
+        
         public bool IsDone { get; set; }
         public DateTime DueDate { get; set; }
 
