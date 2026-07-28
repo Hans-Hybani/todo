@@ -38,4 +38,8 @@ export class EditTodoListComponent implements OnInit {
       this.router.navigate(['/todo-list']);
     });
   }
+  
+  onCancel(): void {
+    this.router.navigate(['/todo-list']);
+  }
 }
