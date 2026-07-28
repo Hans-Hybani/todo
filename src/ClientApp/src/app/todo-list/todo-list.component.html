@@ -1,19 +1,19 @@
 <div class="TodoList">
-  <h1>Mes tâches</h1>
+  <h1>Todos</h1>
   <div class="TodoList-Bloc-Gauche">
     <div *ngFor="let todo of todos">
       <h2>{{ todo.title | titlecase }}</h2>
       <span>
         <input type="checkbox" [checked]="todo.isDone" (change)="onCheck(todo)">
-        Finir la tâche ?
-        <button *ngIf="selectedTodoId === todo.id" (click)="onDelete(todo)">Supprimer</button>
+        Finish the task?
+        <button *ngIf="selectedTodoId === todo.id" (click)="onDelete(todo)">Delete</button>
       </span>
-      <p>Échéance : {{ todo.dueDate | date:'EEE dd MMM yyyy'  }}</p>
+      <p>Due Date : {{ todo.dueDate | date:'EEE dd MMM yyyy'  }}</p>
       <p>Description : {{ todo.notes }}</p>
-      <a [routerLink]="['/edit-todo', todo.id]">Modifier</a>
+      <a [routerLink]="['/edit-todo', todo.id]">Edit</a>
     </div>
   </div>
   <div class="TodoList-Bloc-Droit">
-    <a routerLink="/create-todo">Créer une tâche</a>
+    <a routerLink="/create-todo">Create a task</a>
   </div>
 </div>
