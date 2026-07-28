@@ -5,7 +5,7 @@
             <label for="title">Titre de la tâche</label>
             <input id="title" type="text" formControlName="title">
             <p *ngIf="todoForm.get('title')?.invalid && todoForm.get('title')?.touched" style="color: red;">
-                Veuillez inscrire un titre, s'il vous plaît..
+                Veuillez inscrire un titre, s'il vous plaît.
             </p>
         </div>
   
@@ -16,7 +16,10 @@
   
         <div>
             <label for="notes">Déscription</label>
-            <textarea id="notes" rows="4" formControlName="notes">Oublie pas de créer une tâche</textarea>
+            <textarea id="notes" rows="4" formControlName="notes" maxlength="2001"></textarea>
+            <p *ngIf="todoForm.get('notes')?.invalid && todoForm.get('notes')?.touched" style="color: red;">
+                Les notes ne doivent pas dépasser 2000 caractères.
+            </p>
         </div>
   
         <button type="submit" [disabled]="todoForm.invalid">Créer</button>

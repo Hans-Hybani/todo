@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TodoListService } from '../services/TodoList.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -23,9 +23,9 @@ export class EditTodoListComponent implements OnInit {
     this.todoId = Number(this.route.snapshot.paramMap.get('id'));
 
     this.todoForm = this.fb.group({
-      title: [''],
+      title: ['', [Validators.required, Validators.maxLength(200)]],
       dueDate: [''],
-      notes: ['']
+      notes: ['', [Validators.maxLength(2000)]]
     });
 
     this.todoService.getTodoListById(this.todoId).subscribe(todo => {
@@ -34,11 +34,15 @@ export class EditTodoListComponent implements OnInit {
   }
 
   onSubmit(): void {
+    if (this.todoForm.invalid) {
+      this.todoForm.markAllAsTouched();
+      return;
+    }
     this.todoService.updateTodoList(this.todoId, this.todoForm.value).subscribe(() => {
       this.router.navigate(['/todo-list']);
     });
   }
-  
+
   onCancel(): void {
     this.router.navigate(['/todo-list']);
   }
