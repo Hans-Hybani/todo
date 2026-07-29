@@ -1,3 +1,114 @@
-body { 
-    margin: 10px; 
+.TodoList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+}
+.TodoList h1{
+    width: 100%;
+    font-family: "Archivo Black", sans-serif;
+    font-weight: bolder;
+    font-style: normal;
+    color: #374D1E;
+}
+.TodoListCreateLink{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+.TodoListCreateLink a{
+    text-decoration: none;
+    color: #F7F4EC;
+    background-color: #374D1E;
+    padding: 8px;
+    width: 180px;
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.TodoListCards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+}
+.Card{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 550px;
+    background-color: #E3DCCA;
+    gap: 8px;
+    padding: 16px;
+    border-radius: 8px;
+    border: solid 2px #374D1E;
+}
+.Card h2{
+    width: 100%;
+    color: #374D1E;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+.Card .CardCheckbox{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.CardCheckbox span{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.CardCheckbox input{
+    border-radius: 6px;
+    border: 2px solid #374D1E;
+}
+.CardCheckbox .inputButton{
+    width: 16px;
+    height: 16px;
+    accent-color: #374D1E;
+}
+.Card button{
+    background-color: #A81B1B;
+    color: #E3DCCA;
+    padding: 4px;
+    border: none;
+    border-radius: 24px;
+    width: 100px;
+    text-align: center;
+}
+.Card span{
+    width: 100%;
+    color: rgb(15, 15, 15);
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+.Card .CardDate{
+    font-family: "Edu VIC WA NT Hand", cursive;
+    font-optical-sizing: auto;
+    font-weight:300;
+    font-style: normal;
+}
+.Card .CardDescription{
+    font-family: "Edu VIC WA NT Hand", cursive;
+    font-optical-sizing: auto;
+    font-weight:300;
+    font-style: normal;
+}
+.Card hr{
+    width: 100%;
+    border: none;
+    border-top:2px dashed #374D1E;
+}
+.Card a{
+    text-decoration: none;
+    background-color: #374D1E;
+    color: #E3DCCA;
+    padding: 4px;
+    border-radius: 24px;
+    width: 100px;
+    text-align: center;
 }

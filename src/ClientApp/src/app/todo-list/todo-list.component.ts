@@ -27,8 +27,9 @@ export class TodoListComponent implements OnInit {
   }
 
   // Mark a to-do item as “selected” to reveal the delete button
-  onCheck(todo: TodoList): void {
-    this.selectedTodoId = todo.id;
+  onCheck(todo: TodoList, event: Event): void {
+    const isChecked = (event.target as HTMLInputElement).checked;
+    this.selectedTodoId = isChecked ? todo.id : null;
   }
 
   // Deletes a to-do item and reloads the list

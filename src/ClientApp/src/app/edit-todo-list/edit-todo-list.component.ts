@@ -32,7 +32,10 @@ export class EditTodoListComponent implements OnInit {
 
     // Pre-fills the form with the current values from the todo.
     this.todoService.getTodoListById(this.todoId).subscribe(todo => {
-      this.todoForm.patchValue(todo);
+      this.todoForm.patchValue({
+        ...todo,
+        dueDate: todo.dueDate ? todo.dueDate.toString().substring(0, 10) : ''
+      });
     });
   }
 

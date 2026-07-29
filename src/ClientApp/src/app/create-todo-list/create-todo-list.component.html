@@ -1,27 +1,27 @@
 <div class="CreatTodoList">
-    <h1>Créer une tâche</h1>
+    <h1>Create a Todo </h1>
+    <div class="TodoListCreateLink">
+        <a routerLink="/todo-list">Back</a>
+    </div>
     <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
         <div>
-            <label for="title">Titre de la tâche</label>
-            <input id="title" type="text" formControlName="title">
-            <p *ngIf="todoForm.get('title')?.invalid && todoForm.get('title')?.touched" style="color: red;">
+            <label for="title">Title</label>
+            <input class="title" id="title" type="text" formControlName="title">
+            <p *ngIf="todoForm.get('title')?.invalid && todoForm.get('title')?.touched">
                 Please enter a title.
             </p>
         </div>
-  
         <div>
             <label for="dueDate">Due Date</label>
-            <input id="dueDate" type="date" formControlName="dueDate">
+            <input class="duedate" id="dueDate" type="date" formControlName="dueDate" placeholder="30/07/2026">
         </div>
-  
         <div>
             <label for="notes">Description</label>
-            <textarea id="notes" rows="4" formControlName="notes" maxlength="2001"></textarea>
-            <p *ngIf="todoForm.get('notes')?.invalid && todoForm.get('notes')?.touched" style="color: red;">
+            <textarea class="description" id="notes" rows="4" formControlName="notes" maxlength="2001"></textarea>
+            <p *ngIf="todoForm.get('notes')?.invalid && todoForm.get('notes')?.touched">
                 Notes must not exceed 2,000 characters.
             </p>
         </div>
-  
         <button type="submit" [disabled]="todoForm.invalid">Create</button>
     </form>
 </div>

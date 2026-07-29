@@ -1,19 +1,25 @@
 <div class="TodoList">
-  <h1>Todos</h1>
-  <div class="TodoList-Bloc-Gauche">
-    <div *ngFor="let todo of todos">
-      <h2>{{ todo.title | titlecase }}</h2>
-      <span>
-        <input type="checkbox" [checked]="todo.isDone" (change)="onCheck(todo)">
-        Finish the task?
-        <button *ngIf="selectedTodoId === todo.id" (click)="onDelete(todo)">Delete</button>
-      </span>
-      <p>Due Date : {{ todo.dueDate | date:'EEE dd MMM yyyy'  }}</p>
-      <p>Description : {{ todo.notes }}</p>
-      <a [routerLink]="['/edit-todo', todo.id]">Edit</a>
-    </div>
+  <h1>To-Do List</h1>
+  <div class="TodoListCreateLink">
+    <a routerLink="/create-todo">
+      <span class="material-symbols-outlined">add</span>
+      Create a task
+    </a>
   </div>
-  <div class="TodoList-Bloc-Droit">
-    <a routerLink="/create-todo">Create a task</a>
+  <div class="TodoListCards">
+    <div class="Card" *ngFor="let todo of todos">
+      <h2>{{ todo.title | titlecase }}</h2>
+      <span class="CardCheckbox">
+        <span>
+          <input class="inputButton" type="checkbox" [checked]="selectedTodoId === todo.id" (change)="onCheck(todo, $event)">
+          Finish the task ?
+        </span>
+      </span>
+      <span>Due Date : <span class="CardDate">{{ todo.dueDate | date:'dd MMM yyyy' }}</span></span>
+      <span>Description : <span class="CardDescription">{{ todo.notes }}</span></span>
+      <hr>
+      <a [routerLink]="['/edit-todo', todo.id]">Edit</a>
+      <button *ngIf="selectedTodoId === todo.id" (click)="onDelete(todo)">Delete</button>
+    </div>
   </div>
 </div>
